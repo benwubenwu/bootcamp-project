@@ -35,7 +35,7 @@
     "start": "node index.js",
     "reset": "node index.js --force",
     "copy-env": "cp sample.env .env",
-    "setup-db": "createdb bootcampproject",
+    "setup-db": "createdb bootcampproject2",
     "db": "psql -U admin postgres"
   },
   "devDependencies": {
@@ -48,5 +48,18 @@
     "eslint-plugin-prettier": "^2.6.2",
     "nodemon": "^1.18.4",
     "prettier": "^1.12.1"
-  }
+  },
+  "description": "## Set up",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benwubenwu/bootcamp-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benwubenwu/bootcamp-project/issues"
+  },
+  "homepage": "https://github.com/benwubenwu/bootcamp-project#readme"
 }

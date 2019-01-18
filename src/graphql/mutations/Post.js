@@ -41,9 +41,14 @@ const editPost = async (obj, args, context) => {
       },
     }
   }
+
   // TODO - finish this function which edits a post given its id and new content.
+
+  const post = await User.query().patchAndFetchById(id, { content: newContent })
+
+  return post
 }
 
-const resolver = { Mutation: { createPost } }
+const resolver = { Mutation: { createPost, editPost } }
 
 module.exports = resolver

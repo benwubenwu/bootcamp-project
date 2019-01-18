@@ -2,8 +2,8 @@ const usersData = require('../../../data/users')
 const hobbiesData = require('../../../data/hobbies')
 const postsData = require('../../../data/posts')
 
-const createPost = (knex, post, name) => {
-  return knex('users')
+const createPost = (knex, post, name) =>
+  knex('users')
     .where('name', name)
     .first()
     .then(user => {
@@ -14,10 +14,9 @@ const createPost = (knex, post, name) => {
         userId: user.id,
       })
     })
-}
 
-const createHobby = (knex, hobbyObj, name) => {
-  return knex('users')
+const createHobby = (knex, hobbyObj, name) =>
+  knex('users')
     .where('name', name)
     .first()
     .then(user => {
@@ -28,7 +27,6 @@ const createHobby = (knex, hobbyObj, name) => {
         userId: user.id,
       })
     })
-}
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
@@ -36,9 +34,7 @@ exports.seed = function(knex, Promise) {
     .del()
     .then(() => knex('hobbies').del())
     .then(() => knex('posts').del())
-    .then(() => {
-      return knex('users').insert(usersData)
-    })
+    .then(() => knex('users').insert(usersData))
     .then(() => {
       const postsPromises = postsData.map(post =>
         createPost(knex, post, post.name),

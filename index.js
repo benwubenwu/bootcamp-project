@@ -57,6 +57,7 @@ app.use(
   graphqlExpress(async req => {
     const token = req.headers.authorization
     if (token) {
+      // decode the token using tokenSecret
       const decoded = jwt.verify(token, tokenSecret)
       const user = await User.query().findById(decoded.id)
       return {

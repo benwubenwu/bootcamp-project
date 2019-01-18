@@ -17,7 +17,7 @@ const loginUser = async (obj, { email, password }) => {
       error: 'Password not provided',
     }
   }
-
+  // validating password
   const valid = await bcrypt.compare(password, user.password)
 
   if (!valid) {
@@ -25,8 +25,10 @@ const loginUser = async (obj, { email, password }) => {
       error: 'Invalid password.',
     }
   }
-
+  // object w user ID
   const payload = { id: user.id }
+
+  // encode token with this object containing the ID and encrypt token
   const token = jwt.sign(payload, config.tokenSecret)
   return {
     user,
